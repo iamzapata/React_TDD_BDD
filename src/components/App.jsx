@@ -17,12 +17,13 @@ class App extends Component {
 
   onAddGift() {
     const { gifts } = this.state
+    const ids = gifts.map(g => g.id)
 
     this.setState({
       gifts: [
         ...gifts,
         {
-          id: maxNumber(gifts.map(g => g.id))  + 1
+          id: maxNumber(ids)  + 1
         }
       ]
     })
