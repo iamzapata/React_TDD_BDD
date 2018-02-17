@@ -16,19 +16,24 @@ class Gift extends Component {
       person: null,
       present: null
     }
-
-    this.onPersonChange = this.onPersonChange.bind(this)
-    this.onPresentChange = this.onPresentChange.bind(this)
   }
 
-  onPersonChange = (ev) => {
+  onChangePerson(ev) {
     const { value: person } = ev.target
     this.setState({ person })
   }
 
-  onPresentChange = (ev) => {
+  onChangePresent(ev) {
     const { value: present } = ev.target
     this.setState({ present })
+  }
+
+  onClickRemoveGift() {
+    const {
+      gift: { id }
+    } = this.props;
+
+    this.props.removeGift(id)
   }
 
   render() {
@@ -39,16 +44,22 @@ class Gift extends Component {
           <ControlLabel>Person</ControlLabel>
           <FormControl
             className='Input--Person'
-            onChange={ev => this.onPersonChange(ev)}
+            onChange={ev => this.onChangePerson(ev)}
           />
         </FormGroup>
         <FormGroup>
           <ControlLabel>Present</ControlLabel>
           <FormControl
             className='Input--Present'
-            onChange={ev => this.onPresentChange(ev)}
+            onChange={ev => this.onChangePresent(ev)}
           />
         </FormGroup>
+        <Button
+          className='Btn--Remove'
+          onClick={() => this.onClickRemoveGift()}
+        >
+          Remove Gift
+        </Button>
       </Form>
     )
   }

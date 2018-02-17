@@ -11,7 +11,7 @@ class App extends Component {
       gifts: []
     }
 
-    this.onAddGift = this.onAddGift.bind(this)
+    this.removeGift = this.removeGift.bind(this)
   }
 
   onAddGift() {
@@ -27,6 +27,16 @@ class App extends Component {
       ]
     })
 
+  }
+
+  removeGift(id) {
+    const {
+      gifts
+    } = this.state
+
+    this.setState({
+      gifts: gifts.filter(g => g.id !==id)
+    })
 
   }
 
@@ -41,7 +51,11 @@ class App extends Component {
         <div className="Gift--List">
           {
             gifts.map(g => (
-              <Gift key={g.id}>{g.id}</Gift>
+              <Gift
+                key={g.id}
+                gift={g}
+                removeGift={this.removeGift}
+              />
             ))
           }
         </div>

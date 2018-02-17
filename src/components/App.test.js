@@ -14,6 +14,8 @@ describe('App', () => {
   })
 
   describe('When clicking the `add gift` button', () => {
+    const id = 1
+
     beforeEach(() =>{
       app.find('.Btn--Add').simulate('click')
     })
@@ -22,11 +24,11 @@ describe('App', () => {
       app.setState({gifts: []})
     })
 
-    it('Adds a new gift to `state` when clicking the `add gift` button', () => {
-      expect(app.state().gifts).toEqual([{ id: 1 }])
+    it('Adds a new gift to `state`', () => {
+      expect(app.state().gifts).toEqual([{ id }])
     })
 
-    it('Adds a new gift to the rendered list when clicking the `add gift` button', () => {
+    it('Adds a new gift to the rendered list', () => {
       const gifts = app.find('.Gift--List').children()
 
       expect(gifts.length).toEqual(1)
@@ -34,6 +36,16 @@ describe('App', () => {
 
     it('Creates a Gift component', () => {
       expect(app.find('Gift').exists()).toBe(true)
+    })
+
+    describe('And the user wants to remove the added gitft', () => {
+      beforeEach(() => {
+        app.instance().removeGift(id)
+      })
+
+      it('Removes gift from `state`', () => {
+        expect(app.state().gifts).toEqual([])
+      })
     })
 
   })
