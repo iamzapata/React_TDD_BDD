@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renders correctly 1`] = `
+exports[`App Renders correctly 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -21,6 +21,11 @@ ShallowWrapper {
         <h2>
           Gift Giver
 </h2>,
+        <ul
+          className="Gift--List"
+>
+          
+</ul>,
         <Button
           active={false}
           block={false}
@@ -32,8 +37,8 @@ ShallowWrapper {
 >
           Add Gift
 </Button>,
-        ">",
       ],
+      "className": "container-fluid",
     },
     "ref": null,
     "rendered": Array [
@@ -47,6 +52,18 @@ ShallowWrapper {
         "ref": null,
         "rendered": "Gift Giver",
         "type": "h2",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [],
+          "className": "Gift--List",
+        },
+        "ref": null,
+        "rendered": Array [],
+        "type": "ul",
       },
       Object {
         "instance": null,
@@ -66,7 +83,6 @@ ShallowWrapper {
         "rendered": "Add Gift",
         "type": [Function],
       },
-      ">",
     ],
     "type": "div",
   },
@@ -80,6 +96,11 @@ ShallowWrapper {
           <h2>
             Gift Giver
 </h2>,
+          <ul
+            className="Gift--List"
+>
+            
+</ul>,
           <Button
             active={false}
             block={false}
@@ -91,8 +112,8 @@ ShallowWrapper {
 >
             Add Gift
 </Button>,
-          ">",
         ],
+        "className": "container-fluid",
       },
       "ref": null,
       "rendered": Array [
@@ -106,6 +127,18 @@ ShallowWrapper {
           "ref": null,
           "rendered": "Gift Giver",
           "type": "h2",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [],
+            "className": "Gift--List",
+          },
+          "ref": null,
+          "rendered": Array [],
+          "type": "ul",
         },
         Object {
           "instance": null,
@@ -125,7 +158,6 @@ ShallowWrapper {
           "rendered": "Add Gift",
           "type": [Function],
         },
-        ">",
       ],
       "type": "div",
     },

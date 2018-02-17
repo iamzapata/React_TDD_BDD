@@ -4,17 +4,34 @@ import App from './App'
 
 const app = shallow(<App />)
 
-it('Renders correctly', () => {
+describe('App', () => {
+  it('Renders correctly', () => {
+    expect(app).toMatchSnapshot();
+  })
 
-  expect(app).toMatchSnapshot();
+  it('Initializes the `state` with empty list of gifts', () => {
+    expect(app.state().gifts).toEqual([])
+  })
 
-})
+  describe('When clicking the `add gift` button', () => {
+    beforeEach(() =>{
+      app.find('.Btn--Add').simulate('click')
+    })
 
-it('Initializes the `state` with empty list of gifts', () => {
-  expect(app.state().gifts).toEqual([])
-})
+    afterEach(() => {
+      app.setState({gifts: []})
+    })
 
-it('Adds a new gift to `state` when clicking the `add gift` button', () => {
-  app.find('.Btn--Add').simulate('click')
-  expect(app.state().gifts).toEqual([{ id: 1 }])
+    it('Adds a new gift to `state` when clicking the `add gift` button', () => {
+      expect(app.state().gifts).toEqual([{ id: 1 }])
+    })
+
+    it('Adds a new gift to the rendered list when clicking the `add gift` button', () => {
+      const gifts = app.find('.Gift--List').children()
+
+      expect(gifts.length).toEqual(1)
+    })
+
+  })
+
 })

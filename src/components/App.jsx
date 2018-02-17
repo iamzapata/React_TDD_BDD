@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { Button } from 'react-bootstrap'
 
 class App extends Component {
@@ -31,15 +30,26 @@ class App extends Component {
   }
 
   render() {
+    const {
+      gifts
+    } = this.state
+
     return (
-      <div>
+      <div className="container-fluid">
         <h2>Gift Giver</h2>
+        <ul className="Gift--List">
+          {
+            gifts.map(g => (
+              <li key={g.id}>{g.id}</li>
+            ))
+          }
+        </ul>
         <Button
           className="Btn--Add"
           onClick={() => this.onAddGift()}
         >
           Add Gift
-        </Button>>
+        </Button>
       </div>
     )
   }
