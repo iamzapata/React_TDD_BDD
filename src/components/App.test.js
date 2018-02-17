@@ -32,6 +32,10 @@ describe('App', () => {
       expect(gifts.length).toEqual(1)
     })
 
+    it('Creates a Gift component', () => {
+      expect(app.find('Gift').exists()).toBe(true)
+    })
+
   })
 
 })

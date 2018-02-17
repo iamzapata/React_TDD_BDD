@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bootstrap'
+import Gift from './Gift'
 
 class App extends Component {
 
@@ -37,13 +38,13 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <h2>Gift Giver</h2>
-        <ul className="Gift--List">
+        <div className="Gift--List">
           {
             gifts.map(g => (
-              <li key={g.id}>{g.id}</li>
+              <Gift key={g.id}>{g.id}</Gift>
             ))
           }
-        </ul>
+        </div>
         <Button
           className="Btn--Add"
           onClick={() => this.onAddGift()}
